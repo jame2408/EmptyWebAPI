@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace NorthwindDb.Controllers
@@ -10,9 +11,17 @@ namespace NorthwindDb.Controllers
     public class ValuesController : ApiController
     {
         // GET: api/Values
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            //return new string[] { "value1", "value2" };
+            var resp = Request.CreateResponse(HttpStatusCode.OK, "value");
+            resp.Content = new StringContent("Hello", Encoding.Unicode);
+            resp.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue()
+            {
+                MaxAge = TimeSpan.FromMinutes(20)
+            };
+
+            return resp;
         }
 
         // GET: api/Values/5

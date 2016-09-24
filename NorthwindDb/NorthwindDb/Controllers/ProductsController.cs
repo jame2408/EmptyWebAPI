@@ -24,15 +24,18 @@ namespace NorthwindDb.Controllers
 
         // GET: api/Products/5
         [ResponseType(typeof(Products))]
-        public IHttpActionResult GetProducts(int id)
+        public HttpResponseMessage GetProducts(int id)
         {
             Products products = db.Products.Find(id);
+                       
+
             if (products == null)
             {
-                return NotFound();
+                return Request.CreateResponse(HttpStatusCode.NotFound, products);
             }
-
-            return Ok(products);
+            
+            //return Ok(products);
+            return Request.CreateResponse(HttpStatusCode.OK, products);
         }
 
         // PUT: api/Products/5
