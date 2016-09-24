@@ -12,11 +12,11 @@ namespace NorthwindDb.Models
         {
         }
 
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Products>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
         }
