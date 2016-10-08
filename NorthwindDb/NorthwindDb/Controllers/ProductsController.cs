@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using NorthwindDb.Models;
+using NorthwindDb.Filter;
 
 namespace NorthwindDb.Controllers
 {
@@ -24,6 +25,7 @@ namespace NorthwindDb.Controllers
 
         // GET: api/Products/5
         [ResponseType(typeof(Products))]
+        [ApiError]
         public HttpResponseMessage GetProducts(int id)
         {
             Products products = db.Products.Find(id);
