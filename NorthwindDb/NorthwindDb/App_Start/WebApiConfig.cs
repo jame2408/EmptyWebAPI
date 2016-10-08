@@ -11,6 +11,7 @@ namespace NorthwindDb
         public static void Register(HttpConfiguration config)
         {
             // Web API 設定和服務
+            config.EnableSystemDiagnosticsTracing();
             config.Filters.Add(new ApiErrorAttribute());
 
             // Web API 路由
