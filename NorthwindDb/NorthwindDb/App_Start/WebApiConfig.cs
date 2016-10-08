@@ -14,6 +14,8 @@ namespace NorthwindDb
             config.EnableSystemDiagnosticsTracing();
             config.Filters.Add(new ApiErrorAttribute());
             config.Filters.Add(new ApiVersionAttribute());
+            config.Filters.Add(new ApiRunTimeAttribute());
+            
 
             // Web API 路由
             config.MapHttpAttributeRoutes();

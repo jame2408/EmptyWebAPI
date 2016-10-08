@@ -158,6 +158,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Filter\ApiErrorAttribute.cs" />
+    <Compile Include="Filter\ApiRunTimeAttribute.cs" />
     <Compile Include="Filter\ApiVersionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
