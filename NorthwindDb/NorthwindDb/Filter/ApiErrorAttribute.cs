@@ -14,6 +14,12 @@ namespace NorthwindDb.Filter
             if (actionExecutedContext != null)
             {
                 actionExecutedContext.Response = new System.Net.Http.HttpResponseMessage(HttpStatusCode.InternalServerError);
+
+                Elmah.ErrorSignal
+                   .FromCurrentContext()
+                   .Raise(actionExecutedContext.Exception);
+
+                base.OnException(actionExecutedContext);
             }            
         }
     }

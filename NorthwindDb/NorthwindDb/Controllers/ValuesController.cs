@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NorthwindDb.Filter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -25,8 +26,11 @@ namespace NorthwindDb.Controllers
         }
 
         // GET: api/Values/5
+        [ApiError]
         public string Get(int id)
         {
+            throw new NotImplementedException();
+
             return "value";
         }
 
