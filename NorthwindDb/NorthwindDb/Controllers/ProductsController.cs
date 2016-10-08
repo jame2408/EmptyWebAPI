@@ -31,7 +31,11 @@ namespace NorthwindDb.Controllers
 
             if (products == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, products);
+                //return Request.CreateResponse(HttpStatusCode.NotFound, products);
+
+                var message = $"查無ID={id}的產品";
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+
             }
             
             //return Ok(products);
